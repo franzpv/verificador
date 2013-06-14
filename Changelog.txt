@@ -1,0 +1,5 @@
+Verificador v0.1	13-Jun-2013
+
+- Programa distingue entre "gui" o "console"
+- Conección con la BD y aviso de error, si existe
+- Creacion de tabla "dataset", si no existe

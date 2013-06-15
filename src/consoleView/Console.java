@@ -34,12 +34,12 @@ public class Console {
         if(bdConnection == true){
             Button buttonObtenerData;
             buttonObtenerData = new Button("Obtener Data de Twitter",new Action(){
-         @Override
-         public void doAction(){
-             
-             Obtenedor obtenedorView = new Obtenedor(consoleScreen);
-         }
-     });
+                @Override
+                public void doAction(){
+                    Obtenedor obtenedorView = new Obtenedor(consoleScreen);
+                    obtenedorView = null;
+                }
+            });
             buttonObtenerData.setAlignment(Component.Alignment.LEFT_CENTER);
             consoleWindow.addComponent(buttonObtenerData, LinearLayout.GROWS_HORIZONTALLY);
         

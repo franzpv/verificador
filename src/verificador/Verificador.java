@@ -13,7 +13,7 @@ import guiView.Gui;
  */
 public class Verificador {
     public static void main(String[] args) throws ClassNotFoundException {
-        int debug = 1; //1-> Forzae el uso de la Consola, 2->Forzar el uso del Escritorio, 3-> Ejecución normal del programa
+        int debug = 1; //1-> Forzar el uso de la Consola, 2->Forzar el uso del Escritorio, 3-> Ejecución normal del programa
         
         Console console;
         Gui gui;

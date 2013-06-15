@@ -20,7 +20,8 @@ public class Dbase {
     private String DBName = "tooitr";
     private String DBUsername = "root";
     private String DBPassword = "root";
-    private String DBUrl = "jdbc:mysql://localhost/"+DBName;
+    private String DBPort = "8889";
+    private String DBUrl = "jdbc:mysql://localhost:"+DBPort+"/"+DBName;
     private Connection connection;
     public Statement statement;
     
@@ -34,11 +35,7 @@ public class Dbase {
             statement = connection.createStatement();
             DatabaseMetaData metaData = connection.getMetaData();
             ResultSet tablaCredentials = metaData.getTables(null, null, "dataset", null);
-            if (tablaCredentials.next()){
-                System.out.println("Existe");
-            } 
-            else{
-                System.out.println("No Existe");
+            if (!tablaCredentials.next()){
                 int result = statement.executeUpdate("CREATE TABLE `dataset` (\n" +
                     "  `tweet_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n" +
                     "  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n" +

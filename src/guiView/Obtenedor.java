@@ -29,6 +29,7 @@ public class Obtenedor extends javax.swing.JDialog {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e){
+                stream.closeStream();
                 parent.setVisible(true);
             }
         });
@@ -103,7 +104,7 @@ public class Obtenedor extends javax.swing.JDialog {
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         // TODO add your handling code here:
-        stream = null;
+        stream.closeStream();
         this.dispose();
         this.parent.setVisible(true);
         

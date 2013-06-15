@@ -97,4 +97,9 @@ public class Stream {
         twitterStream.addListener(listener);
         twitterStream.sample();
     }
+    
+    public void closeStream(){
+        twitterStream.cleanUp();
+        twitterStream.shutdown();
+    }
 }

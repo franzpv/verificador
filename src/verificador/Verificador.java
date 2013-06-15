@@ -5,15 +5,15 @@
 package verificador;
 
 import java.awt.Desktop;
-import views.Console;
-import views.Gui;
+import consoleView.Console;
+import guiView.Gui;
 /**
  *
  * @author franz
  */
 public class Verificador {
     public static void main(String[] args) throws ClassNotFoundException {
-        int debug = 0;
+        int debug = 1; //1-> Forzae el uso de la Consola, 2->Forzar el uso del Escritorio, 3-> Ejecución normal del programa
         
         Console console;
         Gui gui;

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package views;
+package guiView;
 
 /**
  *
@@ -43,6 +43,7 @@ public class Gui extends javax.swing.JFrame {
         errorBD = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -54,6 +55,11 @@ public class Gui extends javax.swing.JFrame {
         });
 
         botonObtenerData.setText("Obtener Data desde Twitter");
+        botonObtenerData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonObtenerDataActionPerformed(evt);
+            }
+        });
 
         botonAnalizarData.setText("Analizar Data obtenida");
 
@@ -114,6 +120,11 @@ public class Gui extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_botonSalirActionPerformed
+
+    private void botonObtenerDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonObtenerDataActionPerformed
+        // TODO add your handling code here:
+        Obtenedor obtenedorView = new Obtenedor(this,true);
+    }//GEN-LAST:event_botonObtenerDataActionPerformed
 
     /**
      * @param args the command line arguments

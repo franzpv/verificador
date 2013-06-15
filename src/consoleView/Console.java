@@ -1,4 +1,4 @@
-package views;
+package consoleView;
 
 import com.googlecode.lanterna.TerminalFacade;
 import com.googlecode.lanterna.gui.Action;
@@ -32,7 +32,14 @@ public class Console {
         consoleWindow.setWindowSizeOverride(new TerminalSize(130,50));
         consoleWindow.setSoloWindow(true);
         if(bdConnection == true){
-            Button buttonObtenerData = new Button("Obtener Data de Twitter");
+            Button buttonObtenerData;
+            buttonObtenerData = new Button("Obtener Data de Twitter",new Action(){
+         @Override
+         public void doAction(){
+             
+             Obtenedor obtenedorView = new Obtenedor(consoleScreen);
+         }
+     });
             buttonObtenerData.setAlignment(Component.Alignment.LEFT_CENTER);
             consoleWindow.addComponent(buttonObtenerData, LinearLayout.GROWS_HORIZONTALLY);
         

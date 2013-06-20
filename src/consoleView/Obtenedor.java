@@ -22,15 +22,21 @@ import verificador.Stream;
 public class Obtenedor {
     private GUIScreen parent;
     private Stream stream;
-    
+    private Label tweets[];
+    private Window obtenedorWindow;
+            
     public Obtenedor(GUIScreen parent){
-        stream = new Stream();
-        
-        final Window obtenedorWindow = new Window("Obtener Data de Twitter");
+        stream = new Stream(this);
+        obtenedorWindow = new Window("Obtener Data de Twitter");
         obtenedorWindow.setWindowSizeOverride(new TerminalSize(130,50));
         obtenedorWindow.setSoloWindow(false);
-        Label temp = new Label("Temp");
-        obtenedorWindow.addComponent(temp);
+        
+        tweets = new Label[10];
+       
+        for(int i = 0; i<10; i++){
+            tweets[i] = new Label("");
+            obtenedorWindow.addComponent(tweets[i]);
+        }
         
         obtenedorWindow.addComponent(new EmptySpace(50,50));
         
@@ -46,5 +52,12 @@ public class Obtenedor {
         obtenedorWindow.addComponent(buttonVolver, LinearLayout.GROWS_HORIZONTALLY);
         
         parent.showWindow(obtenedorWindow);
+    }
+    
+    public void writeStreamTweet(String tweet){
+       for(int i = 9; i>0; i--){
+           tweets[i].setText(tweets[i-1].getText());
+       }
+       tweets[0].setText(tweet);
     }
 }

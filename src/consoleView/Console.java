@@ -21,14 +21,17 @@ import com.googlecode.lanterna.terminal.TerminalSize;
  * @author franz
  */
 public class Console {
-    boolean bdConnection;
+    private boolean bdConnection;
+    private GUIScreen consoleScreen;
+    private Window consoleWindow;
     
     public Console(boolean bdConnection){
         this.bdConnection = bdConnection;
     }
+    
     public void makeConsole(){
-        final GUIScreen consoleScreen = TerminalFacade.createGUIScreen();
-        final Window consoleWindow = new Window("Verificador");
+        consoleScreen = TerminalFacade.createGUIScreen();
+        consoleWindow = new Window("Verificador");
         consoleWindow.setWindowSizeOverride(new TerminalSize(130,50));
         consoleWindow.setSoloWindow(true);
         if(bdConnection == true){

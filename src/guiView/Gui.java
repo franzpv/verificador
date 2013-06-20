@@ -9,7 +9,7 @@ package guiView;
  * @author franz
  */
 public class Gui extends javax.swing.JFrame {
-    boolean bdConnection;
+    private boolean bdConnection;
     /**
      * Creates new form Gui
      */

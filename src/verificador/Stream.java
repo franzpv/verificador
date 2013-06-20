@@ -22,8 +22,18 @@ public class Stream {
     private Login login;
     private TwitterStream twitterStream;
     private StatusListener listener;
+    private guiView.Obtenedor obtenedorGui = null;
+    private consoleView.Obtenedor obtenedorConsole = null;
     
-    public Stream(){
+    public Stream(guiView.Obtenedor obtenedor){
+        this.obtenedorGui = obtenedor;
+        login = new Login();
+        twitterStream = login.loginStream();
+        openStream();
+    }
+    
+    public Stream(consoleView.Obtenedor obtenedor){
+        this.obtenedorConsole = obtenedor;
         login = new Login();
         twitterStream = login.loginStream();
         openStream();
@@ -74,7 +84,8 @@ public class Stream {
                         String values =tweet_id+",'"+date+"','"+userid
                                             +"','"+username+"','"+content.replace("'"," ") +"','"+latitude
                                             +"','"+longitud+"',"+followers+","+following+","+tweets;
-         
+                        if(obtenedorGui != null)obtenedorGui.writeStreamTweet(values);
+                        else if(obtenedorConsole != null) obtenedorConsole.writeStreamTweet(values);
                         //System.out.println(values);
                         //stmt.executeQuery("SHOW TABLES");
                         /*stmt.executeUpdate("INSERT INTO dataset(tweet_id,"
